@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "build": "NODE_ENV=production webpack",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "deploy-s3": "node scripts/deploy-to-s3.js"
   },
   "dependencies": {
     "preact": "^8.1.0"
@@ -20,12 +21,14 @@
     "clean-webpack-plugin": "^0.1.15",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
+    "dotenv": "^4.0.0",
     "dotenv-webpack": "^1.4.3",
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.25.0",
     "node-sass": "^4.3.0",
     "postcss-loader": "^1.2.2",
+    "s3": "^4.4.0",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "sw-precache-webpack-plugin": "^0.8.0",

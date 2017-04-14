@@ -12,7 +12,7 @@ renderRoot();
 
 if (process.env.NODE_ENV === 'production') {
   if ('serviceWorker' in navigator && location.protocol === 'https:') {
-    navigator.serviceWorker.register('/service-worker.js').then(function(reg) {
+    navigator.serviceWorker.register('service-worker.js').then(function(reg) {
       reg.onupdatefound = function() {
         const installingWorker = reg.installing;
 
