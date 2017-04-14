@@ -3,13 +3,13 @@ export default function() {
     setTimeout(function() {
       resolve([
         {
-          "person": "pascal@kabisa.nl",
+          "person": "Pascal Widdershoven",
           "voorgerecht": "Groentensoep",
           "hoofdgerecht": "Biefstuk",
           "dessert": "Ijs"
         },
         {
-          "person": "matthijs@kabisa.nl",
+          "person": "Matthijs Groen",
           "voorgerecht": "Tomatensoep",
           "hoofdgerecht": "Schnitzel",
           "dessert": "Ijs"
