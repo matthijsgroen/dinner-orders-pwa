@@ -1,0 +1,26 @@
+/**
+ * Nav / Header
+ */
+
+.header {
+  height: $header-height;
+  width: 100%;
+  padding: 0;
+  left: 0;
+  top: 0;
+  background: $primary;
+  text-align: center;
+
+  @extend %shadow;
+
+  z-index: 50;
+
+  h1 {
+    margin: 0;
+    padding: 0 $base-spacing;
+    font-size: 26px;
+    line-height: $header-height;
+    font-weight: 400;
+    color: $white;
+  }
+}

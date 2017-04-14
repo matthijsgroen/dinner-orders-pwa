@@ -1,0 +1,24 @@
+@import "src/styles/config/extns.scss";
+
+$margin: 0.5em;
+
+.container {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+
+  margin: $margin;
+}
+
+.item {
+  background: #fff;
+  border-bottom: 1px solid #EEEEEE;
+  padding: 0.5em 1em;
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.24);
+  margin-bottom: $margin * 1.25;
+}
+
+.user {
+  color: #616161;
+  margin-bottom: 1em;
+}

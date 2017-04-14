@@ -1,0 +1,23 @@
+/**
+ * App Layout
+ */
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+html.ios-standalone {
+  .header {
+    height: $ios-header-height;
+
+    h1 {
+      line-height: $ios-header-height;
+      padding-top: 10px;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Orders",
+  "short_name": "Orders",
+  "start_url": "/?homescreen=1",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F2F2F2",
+  "theme_color": "#3D5AFE",
+  "icons": [{
+    "src": "<%= require('file-loader!../icons/icon-192.png')%>",
+    "type": "image/png",
+    "sizes": "192x192"
+  }, {
+    "src": "<%= require('file-loader!../icons/icon-512.png')%>",
+    "type": "image/png",
+    "sizes": "512x512"
+  }]
+}

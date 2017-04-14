@@ -1,0 +1,39 @@
+@import "src/styles/config/vars";
+
+.toast {
+  background: #404040;
+  color: #fff;
+  padding: 1em;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+
+  transition: transform .5s cubic-bezier(0.165,0.840,0.440,1.000);
+  transform: translateY(100%);
+
+  p {
+    flex: 3;
+  }
+
+  button {
+    flex: 1;
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+    color: lighten($primary, 15%);
+    font-size: 1em;
+    font-weight: bold;
+    text-align: right;
+    text-transform: uppercase;
+  }
+}
+
+.toast.visible {
+  transform: translateY(0);
+}
