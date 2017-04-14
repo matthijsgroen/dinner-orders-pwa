@@ -5,7 +5,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#F2F2F2",
-  "theme_color": "#3D5AFE",
+  "theme_color": "#fe3d3d",
   "icons": [{
     "src": "<%= require('file-loader!../icons/icon-192.png')%>",
     "type": "image/png",
