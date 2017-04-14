@@ -1,7 +1,6 @@
 {
   "name": "Orders",
   "short_name": "Orders",
-  "start_url": "/?homescreen=1",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#F2F2F2",
