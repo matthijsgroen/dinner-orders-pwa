@@ -1,11 +1,11 @@
-import { render } from 'preact';
+import { h, render } from 'preact';
 import './styles/shell.scss';
 
 const root = document.getElementById('root')
 
 const renderRoot = function() {
   const App = require('./views').default;
-  render(App, root, root.firstElementChild);
+  render(<App />, root, root.firstElementChild);
 }
 
 renderRoot();

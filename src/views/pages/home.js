@@ -1,6 +1,6 @@
-import { h, Component } from "preact";
-import Toast            from "src/components/toast";
-import Orders           from "src/components/Orders";
+import { h, Component }  from "preact";
+import Toast             from "src/components/toast";
+import Orders            from "src/components/Orders";
 
 const now = function() {
   return new Date().getTime();

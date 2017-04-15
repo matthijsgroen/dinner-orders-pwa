@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  margin: auto auto 0.75em;
+  font-size: 0.9em;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  color: inherit;
+}
+
+.icon {
+  margin-right: 0.5em;
+}

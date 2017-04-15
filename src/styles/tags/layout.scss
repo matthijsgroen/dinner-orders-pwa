@@ -9,6 +9,8 @@
 #content {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
 }
 
 html.ios-standalone {
