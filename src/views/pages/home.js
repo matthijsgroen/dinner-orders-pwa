@@ -10,7 +10,9 @@ export default class extends Component {
   constructor() {
     super()
     this.state = this.getInitialState();
+  }
 
+  componentWillMount() {
     document.addEventListener("app:update", () => {
       this.setState({ updateAvailable: true });
     });

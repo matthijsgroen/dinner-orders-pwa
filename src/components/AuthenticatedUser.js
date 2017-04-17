@@ -8,17 +8,17 @@ import {
 } from "src/util/google-auth";
 import { getCurrentUser, setCurrentUser } from "src/util/current-user";
 
-const requestSignIn = (notifyFn) => () => {
+const requestSignIn = (notifyAuthChange) => () => {
   googleSignIn().then(function(user) {
     setCurrentUser(user);
-    notifyFn(user);
+    notifyAuthChange();
   });
 };
 
-const requestSignOut = (notifyFn) => () => {
+const requestSignOut = (notifyAuthChange) => () => {
   googleSignOut().then(function(user) {
     setCurrentUser(null);
-    notifyFn();
+    notifyAuthChange();
   });
 };
 
@@ -37,7 +37,7 @@ const UserInfo = function(props) {
       &nbsp;
       -
       &nbsp;
-      <a href="#" onClick={requestSignOut(props.onAuthChange)}>Log out</a>
+      <a href="#" onClick={requestSignOut(props.onAuthChange)}>Sign out</a>
     </div>
   )
 }

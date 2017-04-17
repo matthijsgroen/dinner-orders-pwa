@@ -5,7 +5,7 @@ import Layout from './tags/layout';
 import AuthenticatedUser from "src/components/AuthenticatedUser";
 
 export default class extends Component {
-  forceRender() {
+  onAuthChange() {
     // This is not pretty. We force a re-render
     // here because when the auth changes we want to re-render
     // the orders list as well, which is nested more deeply.
@@ -18,7 +18,7 @@ export default class extends Component {
       <Layout>
         <Home />
 
-        <AuthenticatedUser onAuthChange={this.forceRender.bind(this)} />
+        <AuthenticatedUser onAuthChange={this.onAuthChange.bind(this)}/>
       </Layout>
     )
   }
