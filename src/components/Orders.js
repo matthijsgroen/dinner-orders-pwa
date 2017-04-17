@@ -5,7 +5,6 @@ import Loader from "src/components/loader";
 import DefinitionList from "src/components/DefinitionList";
 
 import fetchOrders from "src/util/fetch-orders";
-import { getCurrentUser } from "src/util/current-user";
 
 const Order = function(props) {
   return (
@@ -27,7 +26,7 @@ export default class extends Component {
   }
 
   sortedOrders() {
-    const currentUser = getCurrentUser();
+    const currentUser = this.props.user;
     if(! currentUser)
       return this.state.orders;
 

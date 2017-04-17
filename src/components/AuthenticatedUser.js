@@ -6,20 +6,13 @@ import {
   signIn as googleSignIn,
   signOut as googleSignOut,
 } from "src/util/google-auth";
-import { getCurrentUser, setCurrentUser } from "src/util/current-user";
 
 const requestSignIn = (notifyAuthChange) => () => {
-  googleSignIn().then(function(user) {
-    setCurrentUser(user);
-    notifyAuthChange();
-  });
+  googleSignIn().then(notifyAuthChange);
 };
 
 const requestSignOut = (notifyAuthChange) => () => {
-  googleSignOut().then(function(user) {
-    setCurrentUser(null);
-    notifyAuthChange();
-  });
+  googleSignOut().then(notifyAuthChange);
 };
 
 const GoogleSignIn = function(props) {
@@ -43,12 +36,10 @@ const UserInfo = function(props) {
 }
 
 export default function(props) {
-  const currentUser = getCurrentUser();
-
   return (
     <div className={styles.container}>
-      { currentUser
-        && <UserInfo user={currentUser} {...props} />
+      { this.props.user
+        && <UserInfo {...props} />
         || <GoogleSignIn {...props} />
       }
     </div>
