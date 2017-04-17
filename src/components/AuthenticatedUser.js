@@ -7,11 +7,13 @@ import {
   signOut as googleSignOut,
 } from "src/util/google-auth";
 
-const requestSignIn = (notifyAuthChange) => () => {
+const requestSignIn = (notifyAuthChange) => (e) => {
+  e.preventDefault();
   googleSignIn().then(notifyAuthChange);
 };
 
-const requestSignOut = (notifyAuthChange) => () => {
+const requestSignOut = (notifyAuthChange) => (e) => {
+  e.preventDefault();
   googleSignOut().then(notifyAuthChange);
 };
 
