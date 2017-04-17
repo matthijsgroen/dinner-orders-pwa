@@ -8,7 +8,7 @@
   overflow-x: hidden;
 }
 
-html, body, #root, #app, #content, .page {
+html, body, #root, #app, .page {
   @extend %fullscreen;
 }
 
