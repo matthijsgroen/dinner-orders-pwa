@@ -25,7 +25,7 @@ function _loadGAuth() {
   });
 }
 
-function loadGAuth() {
+export function loadGAuth() {
   return window.gapi
     && Promise.resolve()
     || _loadGAuth();
