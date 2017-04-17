@@ -8,8 +8,13 @@
   overflow-x: hidden;
 }
 
-html, body, #root, #app, #content {
+html, body, #root, #app, #content, .page {
   @extend %fullscreen;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
 }
 
 body {
