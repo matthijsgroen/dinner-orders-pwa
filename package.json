@@ -8,7 +8,8 @@
     "deploy-s3": "node scripts/deploy-to-s3.js"
   },
   "dependencies": {
-    "preact": "^8.1.0"
+    "preact": "^8.1.0",
+    "offline-plugin": "^4.7.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.6",
@@ -32,7 +33,6 @@
     "s3": "^4.4.0",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
-    "sw-precache-webpack-plugin": "^0.8.0",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0"
   }

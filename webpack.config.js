@@ -13,7 +13,7 @@ const exclude = /(node_modules|bower_components)/;
 //** webpack plugins **//
 
 const webpack = require('webpack');
-const SWPrecache = require('sw-precache-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 const Clean = require('clean-webpack-plugin');
 const Copy = require('copy-webpack-plugin');
 const HTML = require('html-webpack-plugin');
@@ -50,12 +50,18 @@ if (isProd) {
     plugins.push(
         new webpack.LoaderOptionsPlugin({minimize: true, debug: false}),
         new webpack.optimize.UglifyJsPlugin(uglify),
-        new SWPrecache({
-            filename: 'service-worker.js',
-            navigateFallback: 'index.html',
-            navigateFallbackWhitelist: [/^([^.]+)$/], // urls without extension
-            staticFileGlobsIgnorePatterns: [/\.map$/],
-            minify: true
+        new OfflinePlugin({
+          autoUpdate: true,
+          relativePaths: true,
+          rewrites: { "/": "/index.html" },
+          ServiceWorker: {
+            output: 'service-worker.js',
+            navigateFallback: "index.html",
+            events: true
+          },
+          AppCache: {
+            events: true
+          }
         })
     );
 

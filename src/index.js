@@ -11,29 +11,17 @@ const renderRoot = function() {
 renderRoot();
 
 if (process.env.NODE_ENV === "production") {
-  if ("serviceWorker" in navigator && location.protocol === "https:") {
-    navigator.serviceWorker
-      .register("service-worker.js")
-      .then(function(reg) {
-        reg.onupdatefound = function() {
-          const installingWorker = reg.installing;
-
-          installingWorker.onstatechange = function() {
-            switch (installingWorker.state) {
-              case "installed":
-                if (navigator.serviceWorker.controller) {
-                  const event = new Event("app:update");
-                  document.dispatchEvent(event);
-                }
-                break;
-            }
-          };
-        };
-      })
-      .catch(function(e) {
-        console.error("Error during service worker registration:", e);
-      });
-  }
+  const offlineRuntime = require("offline-plugin/runtime");
+  offlineRuntime.install({
+    onUpdateReady() {
+      // update immediately
+      offlineRuntime.applyUpdate();
+    },
+    onUpdated: () => {
+      const event = new Event("app:update");
+      document.dispatchEvent(event);
+    }
+  });
 } else {
   require("preact/devtools");
 
