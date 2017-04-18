@@ -8,6 +8,10 @@
   overflow-x: hidden;
 }
 
+html, body {
+  position: fixed; // prevent bounce scrolling on iOS
+}
+
 html, body, #root, #app, .page {
   @extend %fullscreen;
 }
