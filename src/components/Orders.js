@@ -1,7 +1,9 @@
 import { h, Component } from "preact";
+import styles from "./Orders.module.scss";
+
 import Loader from "src/components/loader";
 import DefinitionList from "src/components/DefinitionList";
-import styles from "./Orders.module.scss";
+
 import fetchOrders from "src/util/fetch-orders";
 
 const Order = function(props) {
@@ -23,12 +25,28 @@ export default class extends Component {
     });
   }
 
+  sortedOrders() {
+    const currentUser = this.props.user;
+    if(! currentUser)
+      return this.state.orders;
+
+    const orders = [...this.state.orders];
+    orders.sort(function(a, b) {
+      if(a.person == currentUser.name)
+        return -1;
+      else
+        return 1;
+    });
+
+    return orders;
+  }
+
   render() {
     return (
       <ul className={styles.container}>
         {
           this.state.orders
-          && this.state.orders.map((order, index) => {
+          && this.sortedOrders().map((order, index) => {
             return <Order order={order} key={index}/>
           })
           || <Loader message="Loading orders..."/>

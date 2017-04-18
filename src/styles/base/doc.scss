@@ -8,8 +8,19 @@
   overflow-x: hidden;
 }
 
-html, body, #root, #app {
+html, body {
+  position: fixed; // prevent bounce scrolling on iOS
+}
+
+html, body, #root, #app, .page {
   @extend %fullscreen;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  height: auto;
 }
 
 body {
