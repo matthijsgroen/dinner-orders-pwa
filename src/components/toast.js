@@ -20,12 +20,14 @@ export default class Toast extends Component {
       this.setState({ className: `${styles.toast} ${styles.visible}` });
     });
 
-    delay(5000).then(() => {
-      this.setState({ className: styles.toast });
-      return delay(1000);
-    }).then(() => {
-      this.props.onClose();
-    });
+    delay(5000)
+      .then(() => {
+        this.setState({ className: styles.toast });
+        return delay(1000);
+      })
+      .then(() => {
+        this.props.onClose();
+      });
   }
 
   render() {

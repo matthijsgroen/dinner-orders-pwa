@@ -8,12 +8,12 @@ import {
   loadGAuth
 } from "src/util/google-auth";
 
-const requestSignIn = (notifyAuthChange) => (e) => {
+const requestSignIn = notifyAuthChange => e => {
   e.preventDefault();
   googleSignIn().then(notifyAuthChange);
 };
 
-const requestSignOut = (notifyAuthChange) => (e) => {
+const requestSignOut = notifyAuthChange => e => {
   e.preventDefault();
   googleSignOut().then(notifyAuthChange);
 };
@@ -27,11 +27,17 @@ const GoogleSignIn = function(props) {
   loadGAuth();
 
   return (
-    <a href="#" className={styles.link} onClick={requestSignIn(props.onAuthChange)}>
-      <img className={styles.icon} style="height: 1.5em" src={GoogleIcon} /> Sign in with Google
+    <a
+      href="#"
+      className={styles.link}
+      onClick={requestSignIn(props.onAuthChange)}
+    >
+      <img className={styles.icon} style="height: 1.5em" src={GoogleIcon} />
+      {" "}
+      Sign in with Google
     </a>
-  )
-}
+  );
+};
 
 const UserInfo = function(props) {
   return (
@@ -42,16 +48,14 @@ const UserInfo = function(props) {
       &nbsp;
       <a href="#" onClick={requestSignOut(props.onAuthChange)}>Sign out</a>
     </div>
-  )
-}
+  );
+};
 
 export default function(props) {
   return (
     <div className={styles.container}>
-      { this.props.user
-        && <UserInfo {...props} />
-        || <GoogleSignIn {...props} />
-      }
+      {(this.props.user && <UserInfo {...props} />) ||
+        <GoogleSignIn {...props} />}
     </div>
-  )
+  );
 }
