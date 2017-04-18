@@ -12,8 +12,8 @@ const Order = function(props) {
       <p className={styles.user}>{props.order.person}</p>
       <DefinitionList data={props.order.columns} />
     </li>
-  )
-}
+  );
+};
 
 export default class extends Component {
   constructor(props) {
@@ -27,15 +27,12 @@ export default class extends Component {
 
   sortedOrders() {
     const currentUser = this.props.user;
-    if(! currentUser)
-      return this.state.orders;
+    if (!currentUser) return this.state.orders;
 
     const orders = [...this.state.orders];
     orders.sort(function(a, b) {
-      if(a.person == currentUser.name)
-        return -1;
-      else
-        return 1;
+      if (a.person == currentUser.name) return -1;
+      else return 1;
     });
 
     return orders;
@@ -44,13 +41,11 @@ export default class extends Component {
   render() {
     return (
       <ul className={styles.container}>
-        {
-          this.state.orders
-          && this.sortedOrders().map((order, index) => {
-            return <Order order={order} key={index}/>
-          })
-          || <Loader message="Loading orders..."/>
-        }
+        {(this.state.orders &&
+          this.sortedOrders().map((order, index) => {
+            return <Order order={order} key={index} />;
+          })) ||
+          <Loader message="Loading orders..." />}
       </ul>
     );
   }

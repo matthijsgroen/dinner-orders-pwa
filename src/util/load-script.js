@@ -1,6 +1,6 @@
 export default function loadScript(src) {
   return new Promise(function(resolve, reject) {
-    const script = document.createElement('script');
+    const script = document.createElement("script");
     script.async = true;
     script.src = src;
 

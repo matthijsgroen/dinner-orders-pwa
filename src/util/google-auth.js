@@ -8,17 +8,20 @@ const GOOGLE_AUTH_CONFIG = { client_id: Config.googleClientId };
 // are not compatible with native Promises, and result in infinite loops
 // when simply calling googlThenable.then(resolve, reject).
 function fixPromise(googThenable, resolve, reject) {
-  googThenable.then(function(args) {
-    resolve(...args);
-  }, function(args) {
-    reject(...args);
-  })
+  googThenable.then(
+    function(args) {
+      resolve(...args);
+    },
+    function(args) {
+      reject(...args);
+    }
+  );
 }
 
 function _loadGAuth() {
   return loadScript(GOOGLE_AUTH_PLATFORM_SCRIPT).then(function() {
     return new Promise(function(resolve, reject) {
-      gapi.load('auth2', function() {
+      gapi.load("auth2", function() {
         fixPromise(gapi.auth2.init(GOOGLE_AUTH_CONFIG), resolve, reject);
       });
     });
@@ -26,26 +29,24 @@ function _loadGAuth() {
 }
 
 export function loadGAuth() {
-  return window.gapi
-    && Promise.resolve()
-    || _loadGAuth();
+  return (window.gapi && Promise.resolve()) || _loadGAuth();
 }
 
 function profile(basicProfile) {
   return {
     name: basicProfile.getName(),
     email: basicProfile.getEmail()
-  }
+  };
 }
 
 export function signIn() {
   return loadGAuth().then(function() {
     return new Promise(function(resolve, reject) {
       const auth = gapi.auth2.getAuthInstance();
-      const resolveUserProfile = () => resolve(profile(auth.currentUser.get().getBasicProfile()));
+      const resolveUserProfile = () =>
+        resolve(profile(auth.currentUser.get().getBasicProfile()));
 
-      if(auth.isSignedIn.get())
-        resolveUserProfile();
+      if (auth.isSignedIn.get()) resolveUserProfile();
       else {
         auth.isSignedIn.listen(resolveUserProfile);
         auth.signIn();
