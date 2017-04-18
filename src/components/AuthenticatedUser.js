@@ -35,7 +35,7 @@ const GoogleSignIn = function(props) {
 
 const UserInfo = function(props) {
   return (
-    <div>
+    <div className={styles.userInfo}>
       {props.user.email}
       &nbsp;
       -
