@@ -3,7 +3,7 @@
 ## Setup
 
 1. Create a .env file, see [env.example](./env.example) for required keys.
-2. Run `yarn install` (or `npm install`)
+2. Run `bin/setup`
 
 ## Building
 
