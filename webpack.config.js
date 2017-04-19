@@ -132,7 +132,7 @@ module.exports = {
     }
   },
   plugins: plugins,
-  devtool: !isProd && "eval",
+  devtool: isProd ? "source-map" : "eval",
   devServer: {
     publicPath: "/",
     contentBase: out,

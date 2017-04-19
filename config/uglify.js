@@ -14,5 +14,6 @@ module.exports = {
     evaluate: true,
     drop_debugger: true,
     drop_console: false
-  }
-}
+  },
+  sourceMap: true
+};
