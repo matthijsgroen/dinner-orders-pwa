@@ -12,7 +12,10 @@
   },
   "dependencies": {
     "offline-plugin": "^4.7.0",
-    "preact": "^8.1.0"
+    "preact": "^8.1.0",
+    "preact-redux": "^2.0.1",
+    "redux": "^3.6.0",
+    "redux-actions": "^2.0.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.6",
