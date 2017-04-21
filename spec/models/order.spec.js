@@ -1,6 +1,6 @@
 import Order from "src/models/order";
 
-describe("Order", () => {
+describe("Order model", () => {
 
   it("extracts the person from json data", () => {
     const person = {

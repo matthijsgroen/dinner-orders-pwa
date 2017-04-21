@@ -1,19 +1,19 @@
 const webpackConfig = require("./webpack.config.js");
-
 const commonsChunkPluginIndex = webpackConfig.plugins.findIndex(plugin => plugin.chunkNames);
 webpackConfig.plugins.splice(commonsChunkPluginIndex, 1);
 
 module.exports = function(config) {
   config.set({
     basePath: '',
-    frameworks: ['mocha', 'chai', 'sinon'],
+    frameworks: ['mocha', 'chai-dom', 'chai', 'sinon'],
     files: [
-      'spec/**/*_spec.js'
+      'spec/spec_helper.js',
+      'spec/**/*.spec.js'
     ],
     exclude: [
     ],
     preprocessors: {
-      "spec/**/*_spec.js": ["webpack"]
+      "spec/**/*.js": ["webpack"]
     },
     // webpack configuration
     webpack: webpackConfig,
